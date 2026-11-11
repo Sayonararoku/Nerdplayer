@@ -1,0 +1,270 @@
+/* Sitio publico de Nerdplayer. Mismo lenguaje visual que la app: negro, rojo y foco blanco. */
+:root {
+    --bg: #050505;
+    --ink: #f4f4f4;
+    --soft: #cfcfcf;
+    --muted: #9c9c9c;
+    --line: #242424;
+    --panel: #101010;
+    --red: #e50914;
+    --red-text: #ff3640;
+    --max: 1200px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background:
+        radial-gradient(980px 560px at 88% -6%, rgba(229, 9, 20, .22), transparent 62%),
+        radial-gradient(760px 520px at -12% 34%, rgba(229, 9, 20, .07), transparent 62%),
+        var(--bg);
+    background-repeat: no-repeat;
+    font: 17px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Dos idiomas en la misma pagina: se muestra el que diga <html data-lang>. */
+html[data-lang="en"] [lang="es"],
+html[data-lang="es"] [lang="en"] { display: none !important; }
+
+a { color: inherit; }
+img { max-width: 100%; }
+
+:focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 6px; }
+
+.skip { position: absolute; left: -9999px; top: 0; background: #fff; color: #000; padding: 10px 16px; z-index: 10; }
+.skip:focus { left: 12px; top: 12px; }
+
+/* ---------- Cabecera ---------- */
+.top {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 26px 28px 0;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+.brand { display: block; line-height: 0; margin-right: auto; }
+.brand img { height: 58px; width: auto; display: block; }
+
+.pills { display: flex; gap: 10px; }
+.pills a {
+    padding: 8px 20px;
+    border-radius: 999px;
+    background: #171717;
+    border: 2px solid #343434;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: border-color .15s, background .15s;
+}
+.pills a:hover { border-color: #fff; background: #1f1f1f; }
+
+.lang { display: inline-flex; border: 2px solid #343434; border-radius: 999px; overflow: hidden; }
+.lang button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+.lang button:hover { color: #fff; }
+.lang button[aria-pressed="true"] { background: var(--red); color: #fff; }
+
+/* ---------- Titulares ---------- */
+.kicker {
+    margin: 0;
+    color: var(--red-text);
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -.022em; }
+h1 { font-size: clamp(36px, 4.5vw, 62px); line-height: 1.05; margin: 16px 0 0; text-wrap: balance; }
+h2 { font-size: clamp(29px, 3.3vw, 44px); line-height: 1.1; margin: 12px 0 0; text-wrap: balance; }
+.lead { margin: 0; color: var(--soft); font-size: 19px; max-width: 33em; }
+
+/* ---------- Portada ---------- */
+.hero { max-width: var(--max); margin: 0 auto; padding: 60px 28px 90px; }
+.hero-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 60px;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 22px; margin: 28px 0 0; padding-left: 4px; }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 13px 26px;
+    border-radius: 10px;
+    background: #171717;
+    border: 2px solid #343434;
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    transition: border-color .15s, background .15s, transform .15s;
+}
+.btn:hover { border-color: #fff; }
+/* El boton principal lleva el foco de la app: rojo con aro blanco. */
+.btn-primary { background: var(--red); border-color: var(--red); box-shadow: 0 0 0 4px #fff; }
+.btn-primary:hover { background: #f31420; border-color: #f31420; transform: translateY(-1px); }
+
+.note {
+    margin: 28px 0 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--red);
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 30em;
+}
+
+/* ---------- Televisor ---------- */
+.tv { margin: 0; }
+.tv-screen {
+    position: relative;
+    background: #000;
+    border: 9px solid #0d0d0d;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    box-shadow:
+        0 0 0 1px #2c2c2c,
+        0 44px 90px -30px #000,
+        0 0 130px -24px rgba(229, 9, 20, .5);
+}
+.tv-screen img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.tv-foot {
+    width: 34%;
+    height: 9px;
+    margin: 12px auto 0;
+    border-radius: 2px 2px 9px 9px;
+    background: linear-gradient(#232323, #0c0c0c);
+    box-shadow: 0 0 0 1px #1c1c1c;
+}
+.tv figcaption { margin-top: 16px; text-align: center; color: var(--muted); font-size: 14px; }
+
+/* ---------- Secciones ---------- */
+.section { max-width: var(--max); margin: 0 auto; padding: 84px 28px; }
+.section-head { max-width: 40em; }
+.section-head p.sub { margin: 16px 0 0; color: var(--soft); font-size: 18px; }
+
+/* Funciones: filas como las listas de la app. Al pasar el puntero, la fila toma el foco. */
+.rows {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+}
+.rows li {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 0 16px;
+    padding: 24px 22px;
+    border-top: 1px solid var(--line);
+    transition: background .15s, box-shadow .15s;
+}
+.rows li:hover { background: var(--red); box-shadow: inset 0 0 0 3px #fff; }
+.rows .n { color: var(--red-text); font-weight: 800; font-size: 15px; letter-spacing: .14em; padding-top: 5px; }
+.rows li:hover .n, .rows li:hover p { color: #fff; }
+.rows h3 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+.rows p { margin: 6px 0 0; color: var(--muted); }
+
+/* Pantallas y control remoto */
+.screens { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 60px; align-items: center; }
+.remote { display: flex; align-items: center; gap: 28px; margin: 34px 0 0; }
+.remote svg { flex: 0 0 136px; width: 136px; height: 136px; }
+.keys { margin: 0; display: grid; gap: 12px; }
+.keys div { display: grid; grid-template-columns: 74px 1fr; align-items: baseline; gap: 12px; }
+.keys dt {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #fff;
+    border: 2px solid #343434;
+    border-radius: 8px;
+    padding: 3px 0;
+    text-align: center;
+}
+.keys dd { margin: 0; color: var(--soft); }
+
+/* Pasos */
+.steps { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: paso; }
+.steps li { counter-increment: paso; border-top: 3px solid var(--red); padding-top: 18px; }
+.steps li::before {
+    content: counter(paso);
+    display: block;
+    font-size: 88px;
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px #4a4a4a;
+    margin-bottom: 14px;
+}
+.steps h3 { font-size: 21px; font-weight: 700; letter-spacing: -.01em; }
+.steps p { margin: 8px 0 0; color: var(--muted); }
+
+/* Aviso */
+.notice {
+    background: linear-gradient(180deg, #151515, #0c0c0c);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--red);
+    border-radius: 14px;
+    padding: 40px 44px;
+}
+.notice p { margin: 16px 0 0; color: var(--soft); max-width: 46em; }
+.notice p.kicker { margin: 0; color: var(--red-text); }
+
+/* Pie */
+.foot { border-top: 1px solid var(--line); margin-top: 30px; }
+.foot-in { max-width: var(--max); margin: 0 auto; padding: 38px 28px 56px; display: grid; gap: 22px; }
+.foot-top { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+.foot-top img { height: 36px; width: auto; display: block; margin-right: auto; }
+.foot-top a { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--red); padding-bottom: 2px; }
+.foot-top a:hover { color: var(--red-text); }
+.small { margin: 0; color: #7f7f7f; font-size: 13.5px; line-height: 1.55; max-width: 62em; }
+
+/* ---------- Pantallas estrechas ---------- */
+@media (max-width: 980px) {
+    .hero { padding: 44px 22px 70px; }
+    .hero-copy { grid-template-columns: 1fr; gap: 26px; align-items: start; margin-bottom: 44px; }
+    .screens { grid-template-columns: 1fr; gap: 40px; }
+    .rows { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 34px; }
+    .section { padding: 64px 22px; }
+    .top { padding: 20px 22px 0; flex-wrap: wrap; gap: 14px; }
+    .pills { order: 3; width: 100%; flex-wrap: wrap; gap: 8px; }
+    .notice { padding: 30px 26px; }
+}
+@media (max-width: 520px) {
+    body { font-size: 16px; }
+    .brand img { height: 46px; }
+    .pills a { padding: 6px 14px; font-size: 14px; }
+    .kicker { font-size: 12px; letter-spacing: .13em; }
+    .actions { gap: 18px; }
+    .lead { font-size: 17.5px; }
+    .rows li { grid-template-columns: 44px 1fr; padding: 20px 12px; }
+    .remote { flex-direction: column; align-items: flex-start; }
+    .steps li::before { font-size: 70px; }
+    .tv-screen { border-width: 6px; border-radius: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
