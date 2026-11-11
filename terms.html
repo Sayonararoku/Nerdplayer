@@ -1,67 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Use</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-      color: #222;
-    }
-    h1 {
-      color: #111;
-      margin-bottom: 10px;
-    }
-    h2 {
-      margin-top: 25px;
-      color: #333;
-    }
-    p {
-      margin-bottom: 16px;
-      font-size: 16px;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nerdplayer — Terms of Use</title>
+    <meta name="title-en" content="Nerdplayer — Terms of Use">
+    <meta name="title-es" content="Nerdplayer — Términos de uso">
+    <meta name="description" content="Terms of Use of Nerdplayer, a media player for Samsung Smart TVs. Términos de uso de Nerdplayer.">
+    <meta name="theme-color" content="#050505">
+    <script>
+        // Idioma inicial, antes de pintar: ?lang=, lo elegido antes, o el del navegador. Por defecto, ingles.
+        (function () {
+            var lang = 'en';
+            try {
+                var q = /[?&]lang=(en|es)\b/.exec(location.search);
+                var saved = localStorage.getItem('nerdplayer.site.lang');
+                if (q) { lang = q[1]; } else if (saved === 'en' || saved === 'es') { lang = saved; } else if (/^es\b/i.test(navigator.language || '')) { lang = 'es'; }
+            } catch (e) { /* se queda en ingles */ }
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.setAttribute('lang', lang);
+        }());
+    </script>
+    <link rel="stylesheet" href="site.css">
+    <!-- Sin JavaScript no hay interruptor: se muestran los dos idiomas, uno tras otro. -->
+    <noscript><style>article[lang] { display: block !important; } article[lang="es"] { margin-top: 70px; }</style></noscript>
 </head>
 <body>
+    <a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="es">Ir al contenido</span></a>
 
-  <h1>Terms of Use</h1>
+    <header class="top">
+        <a class="brand" href="./"><img src="img/logo.png" alt="Nerdplayer" width="600" height="188"></a>
+        <nav class="pills" aria-label="Pages">
+            <a href="./"><span lang="en">Home</span><span lang="es">Inicio</span></a>
+            <a href="privacy.html"><span lang="en">Privacy</span><span lang="es">Privacidad</span></a>
+            <a href="terms.html" aria-current="page"><span lang="en">Terms</span><span lang="es">Términos</span></a>
+        </nav>
+        <div class="lang" role="group" aria-label="Language / Idioma">
+            <button type="button" data-set-lang="en" aria-pressed="true" title="English">EN</button>
+            <button type="button" data-set-lang="es" aria-pressed="false" title="Español">ES</button>
+        </div>
+    </header>
 
-  <p><strong>Last Updated:</strong> June 2026</p>
+    <main id="main" class="doc">
+        <article lang="en">
+            <p class="kicker">Legal</p>
+            <h1>Terms of Use</h1>
+            <p class="updated">Last updated: June 2026</p>
 
-  <p>Welcome to this application. By using it, you agree to these Terms of Use.</p>
+            <div class="intro">
+                <p>Welcome to this application. By using it, you agree to these Terms of Use.</p>
+            </div>
 
-  <h2>1. Nature of the Application</h2>
+            <section>
+                <span class="n">01</span>
+                <div>
+                    <h2>Nature of the application</h2>
+                    <p>This application functions solely as a media player and content management tool for
+                    content provided by the user.</p>
+                    <p>The application does not provide, host, distribute, sell, or retransmit television
+                    channels, movies, TV series, sporting events, live broadcasts, or any other audiovisual
+                    content.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">02</span>
+                <div>
+                    <h2>Third-party content</h2>
+                    <p>All content played through the application is added exclusively by the user through
+                    playlists, links, credentials, or third-party services.</p>
+                    <p>The developers and owners of the application have no commercial relationship with the
+                    content providers used by users.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">03</span>
+                <div>
+                    <h2>User responsibility</h2>
+                    <p>The user is solely responsible for ensuring that they possess the necessary rights,
+                    permissions, and authorizations to access any content used within the application.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">04</span>
+                <div>
+                    <h2>Limitation of liability</h2>
+                    <p>The developers, owners, and distributors of this application shall not be responsible for
+                    the availability, quality, legality, accuracy, or interruption of services or content
+                    provided by third parties.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">05</span>
+                <div>
+                    <h2>Modifications</h2>
+                    <p>We reserve the right to modify these terms at any time. Any changes will be published on
+                    this page.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">06</span>
+                <div>
+                    <h2>Acceptance</h2>
+                    <p>Continued use of the application constitutes acceptance of these Terms of Use.</p>
+                </div>
+            </section>
+        </article>
 
-  <p>This application functions solely as a media player and content management tool for content provided by the user.</p>
+        <article lang="es">
+            <p class="kicker">Legal</p>
+            <h1>Términos de uso</h1>
+            <p class="updated">Última actualización: junio de 2026</p>
 
-  <p>The application does not provide, host, distribute, sell, or retransmit television channels, movies, TV series, sporting events, live broadcasts, or any other audiovisual content.</p>
+            <div class="intro">
+                <p>Te damos la bienvenida a esta aplicación. Al usarla, aceptas estos Términos de uso.</p>
+            </div>
 
-  <h2>2. Third-Party Content</h2>
+            <section>
+                <span class="n">01</span>
+                <div>
+                    <h2>Naturaleza de la aplicación</h2>
+                    <p>Esta aplicación funciona únicamente como reproductor multimedia y herramienta de gestión
+                    del contenido que proporciona el usuario.</p>
+                    <p>La aplicación no provee, aloja, distribuye, vende ni retransmite canales de televisión,
+                    películas, series, eventos deportivos, transmisiones en vivo ni ningún otro contenido
+                    audiovisual.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">02</span>
+                <div>
+                    <h2>Contenido de terceros</h2>
+                    <p>Todo el contenido que se reproduce en la aplicación lo agrega exclusivamente el usuario
+                    mediante listas de reproducción, enlaces, credenciales o servicios de terceros.</p>
+                    <p>Los desarrolladores y propietarios de la aplicación no tienen relación comercial con los
+                    proveedores de contenido que utilizan los usuarios.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">03</span>
+                <div>
+                    <h2>Responsabilidad del usuario</h2>
+                    <p>El usuario es el único responsable de asegurarse de contar con los derechos, permisos y
+                    autorizaciones necesarios para acceder a cualquier contenido que use en la aplicación.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">04</span>
+                <div>
+                    <h2>Limitación de responsabilidad</h2>
+                    <p>Los desarrolladores, propietarios y distribuidores de esta aplicación no serán
+                    responsables de la disponibilidad, calidad, legalidad, exactitud o interrupción de los
+                    servicios o contenidos proporcionados por terceros.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">05</span>
+                <div>
+                    <h2>Modificaciones</h2>
+                    <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Cualquier
+                    cambio se publicará en esta página.</p>
+                </div>
+            </section>
+            <section>
+                <span class="n">06</span>
+                <div>
+                    <h2>Aceptación</h2>
+                    <p>El uso continuado de la aplicación constituye la aceptación de estos Términos de uso.</p>
+                </div>
+            </section>
+        </article>
+    </main>
 
-  <p>All content played through the application is added exclusively by the user through playlists, links, credentials, or third-party services.</p>
+    <footer class="foot">
+        <div class="foot-in">
+            <div class="foot-top">
+                <img src="img/logo.png" alt="Nerdplayer" width="600" height="188">
+                <a href="./"><span lang="en">Home</span><span lang="es">Inicio</span></a>
+                <a href="privacy.html"><span lang="en">Privacy Policy</span><span lang="es">Política de privacidad</span></a>
+                <a href="terms.html"><span lang="en">Terms of Use</span><span lang="es">Términos de uso</span></a>
+            </div>
+            <p class="small">
+                <span lang="en">Samsung is a trademark of Samsung Electronics Co., Ltd. Nerdplayer is an independent application and is not affiliated with or endorsed by Samsung.</span>
+                <span lang="es">Samsung es una marca de Samsung Electronics Co., Ltd. Nerdplayer es una aplicación independiente y no está afiliada a Samsung ni cuenta con su respaldo.</span>
+            </p>
+            <p class="small">© 2026 Nerdplayer</p>
+        </div>
+    </footer>
 
-  <p>The developers and owners of the application have no commercial relationship with the content providers used by users.</p>
-
-  <h2>3. User Responsibility</h2>
-
-  <p>The user is solely responsible for ensuring that they possess the necessary rights, permissions, and authorizations to access any content used within the application.</p>
-
-  <h2>4. Limitation of Liability</h2>
-
-  <p>The developers, owners, and distributors of this application shall not be responsible for the availability, quality, legality, accuracy, or interruption of services or content provided by third parties.</p>
-
-  <h2>5. Modifications</h2>
-
-  <p>We reserve the right to modify these terms at any time. Any changes will be published on this page.</p>
-
-  <h2>6. Acceptance</h2>
-
-  <p>Continued use of the application constitutes acceptance of these Terms of Use.</p>
-
+    <script src="site.js"></script>
 </body>
 </html>
